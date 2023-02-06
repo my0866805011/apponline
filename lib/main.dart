@@ -14,10 +14,10 @@ final Map<String, WidgetBuilder> map ={
   '/riderservice':(BuildContext context) => const RiderService(),
 };
 
-String? minitRoute;
+String? mInitRoute;
 
 void main() {
-  minitRoute = Static_val.routeAuthen;
+  mInitRoute = Config.routeAuthen;
   runApp(MyApp());
   
 }
@@ -27,9 +27,9 @@ void main() {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: Static_val.appName,
+      title: Config.appName,
       routes: map,
-      initialRoute: minitRoute,
+      initialRoute: mInitRoute,
     );
   }
 }

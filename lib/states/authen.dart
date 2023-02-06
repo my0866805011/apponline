@@ -1,3 +1,5 @@
+import 'package:apponline/utility/config.dart';
+import 'package:apponline/widgets/show_image.dart';
 import 'package:flutter/material.dart';
 
 class Authen extends StatefulWidget {
@@ -8,8 +10,20 @@ class Authen extends StatefulWidget {
 }
 
 class _AuthenState extends State<Authen> {
+ 
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    double mSize = MediaQuery.of(context).size.width;
+    return Scaffold(
+      body: SafeArea(
+        child: Container(
+          width: mSize*0.35,
+          child: ShowImage(cPath: Config.image2),
+          ),
+        ),
+      );
+
+  
   }
 }

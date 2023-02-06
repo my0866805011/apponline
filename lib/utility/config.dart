@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Static_val {
+class Config {
   
   static String appName = 'AnsOnline';
   static String domain = 'https://57ans.com/ansonline/api';
