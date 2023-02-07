@@ -20,10 +20,20 @@ class _AuthenState extends State<Authen> {
           children: [
             dispImgage(mSize),
             appName(),
+            userName(mSize),
           ],
         ),
       ),
     );
+  }
+
+  Row userName(double mSize) {
+    return Row(mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(width: mSize*0.6,
+                child: TextFormField()),
+            ],
+          );
   }
 
   Row appName() {
