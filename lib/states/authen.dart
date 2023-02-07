@@ -17,13 +17,17 @@ class _AuthenState extends State<Authen> {
     double mSize = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SafeArea(
-        child: Container(
-          width: mSize*0.35,
-          child: ShowImage(cPath: Config.image2),
-          ),
+        child: dispImgage(mSize),
         ),
       );
 
   
+  }
+
+  Container dispImgage(double mSize) {
+    return Container(
+        width: mSize*0.35,
+        child: ShowImage(cPath: Config.image2),
+        );
   }
 }
