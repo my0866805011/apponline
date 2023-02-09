@@ -26,6 +26,7 @@ class _AuthenState extends State<Authen> {
               userName(mSize),
               userPassword(mSize),
               loginButton(mSize),
+              createAccount()
             ],
           ),
         ),
@@ -33,18 +34,37 @@ class _AuthenState extends State<Authen> {
     );
   }
 
+  Row createAccount() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        ShowTitle(
+          cTitle: 'Non Account ?',
+          cTextStyle: Config().h3Style(),
+        ),
+        TextButton(
+          onPressed: () => Navigator.pushNamed(context, Config.routeCreate),
+          child: Text('Create Account'),
+        ),
+      ],
+    );
+  }
+
   Row loginButton(double mSize) {
-    return Row(mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(margin: EdgeInsetsDirectional.symmetric(vertical: 16),
-                  width: mSize*0.6,
-                  child: ElevatedButton(
-                    style: Config().myButtonStyle(),
-                    onPressed: (){}, child: const Text('LogIn'),
-                  ),
-                ),
-              ],
-            );
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          margin: const EdgeInsetsDirectional.symmetric(vertical: 16),
+          width: mSize * 0.6,
+          child: ElevatedButton(
+            style: Config().myButtonStyle(),
+            onPressed: () {},
+            child: const Text('LogIn'),
+          ),
+        ),
+      ],
+    );
   }
 
   Row userName(double mSize) {
