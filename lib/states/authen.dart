@@ -25,6 +25,7 @@ class _AuthenState extends State<Authen> {
               appName(),
               userName(mSize),
               userPassword(mSize),
+              ElevatedButton(onPressed: (){}, child: Text('LogIn'),),
             ],
           ),
         ),
