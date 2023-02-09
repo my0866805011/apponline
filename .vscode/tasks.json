@@ -11,6 +11,17 @@
 			"problemMatcher": [],
 			"label": "flutter: flutter pub get",
 			"detail": ""
+		},
+		{
+			"type": "cmake",
+			"label": "CMake: clean",
+			"command": "clean",
+			"problemMatcher": [],
+			"detail": "CMake template clean task",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
 		}
 	]
 }
