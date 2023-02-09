@@ -25,7 +25,7 @@ class _AuthenState extends State<Authen> {
               appName(),
               userName(mSize),
               userPassword(mSize),
-              ElevatedButton(onPressed: (){}, child: Text('LogIn'),),
+              loginButton(mSize),
             ],
           ),
         ),
@@ -33,12 +33,26 @@ class _AuthenState extends State<Authen> {
     );
   }
 
+  Row loginButton(double mSize) {
+    return Row(mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(margin: EdgeInsetsDirectional.symmetric(vertical: 16),
+                  width: mSize*0.6,
+                  child: ElevatedButton(
+                    style: Config().myButtonStyle(),
+                    onPressed: (){}, child: const Text('LogIn'),
+                  ),
+                ),
+              ],
+            );
+  }
+
   Row userName(double mSize) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-            margin: EdgeInsets.only(top: 16),
+            margin: const EdgeInsets.only(top: 16),
             width: mSize * 0.6,
             child: TextFormField(
               decoration: InputDecoration(
@@ -67,7 +81,7 @@ class _AuthenState extends State<Authen> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-            margin: EdgeInsets.only(top: 16),
+            margin: const EdgeInsets.only(top: 16),
             width: mSize * 0.6,
             child: TextFormField(
               obscureText: mStatusRedEye,
@@ -124,7 +138,7 @@ class _AuthenState extends State<Authen> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          margin: EdgeInsets.only(top: 16),
+          margin: const EdgeInsets.only(top: 16),
           width: mSize * 0.35,
           child: ShowImage(cPath: Config.image2),
         ),

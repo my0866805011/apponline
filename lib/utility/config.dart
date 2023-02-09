@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class Config {
-  
   static String appName = 'AnsOnline';
   static String domain = 'https://57ans.com/ansonline/api';
 
@@ -20,9 +19,9 @@ class Config {
   static String avatar = 'assets/images/avatar.png';
 
 //Color
-  static Color primary = const Color(0xff87861d);
-  static Color dart = const Color(0xff575900);
-  static Color light = const Color(0xffb9b64e);
+  static Color primary = Color.fromARGB(255, 243, 133, 225);
+  static Color dart = Color.fromARGB(255, 5, 109, 173);
+  static Color light = Color.fromARGB(255, 203, 245, 215);
 
 // Style
   TextStyle h1Style() => TextStyle(
@@ -43,6 +42,8 @@ class Config {
         fontWeight: FontWeight.normal,
       );
   ButtonStyle myButtonStyle() => ElevatedButton.styleFrom(
+        foregroundColor: Config.light,
+        shadowColor: Config.primary,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30),
         ),
