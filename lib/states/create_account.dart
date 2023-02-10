@@ -172,3 +172,31 @@ Row userAddress(double mSize) {
     ],
   );
 }
+Row userPhone(double mSize) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Container(
+          margin: const EdgeInsets.only(top: 16),
+          width: mSize * 0.6,
+          child: TextFormField(
+            decoration: InputDecoration(
+              labelStyle: Config().h3Style(),
+              labelText: 'Phone :',
+              prefixIcon: Icon(
+                Icons.phone,
+                color: Config.dart,
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Config.dart),
+                borderRadius: BorderRadius.circular(30),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Config.light),
+                borderRadius: BorderRadius.circular(30),
+              ),
+            ),
+          )),
+    ],
+  );
+}
