@@ -32,6 +32,8 @@ class _CreateAccountState extends State<CreateAccount> {
             radioRider(mSize),
             titleMsg('รายละเอียด'),
             userAddress(mSize),
+            userPhone(mSize),
+            
           ],
         ),
       ),
@@ -172,6 +174,37 @@ Row userAddress(double mSize) {
     ],
   );
 }
+
+
+Row userEmail(double mSize) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Container(
+          margin: const EdgeInsets.only(top: 16),
+          width: mSize * 0.6,
+          child: TextFormField(
+            decoration: InputDecoration(
+              labelStyle: Config().h3Style(),
+              labelText: 'Email :',
+              prefixIcon: Icon(
+                Icons.email,
+                color: Config.dart,
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Config.dart),
+                borderRadius: BorderRadius.circular(30),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Config.light),
+                borderRadius: BorderRadius.circular(30),
+              ),
+            ),
+          )),
+    ],
+  );
+}
+
 Row userPhone(double mSize) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.center,
@@ -200,3 +233,33 @@ Row userPhone(double mSize) {
     ],
   );
 }
+
+Row userPassword(double mSize) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Container(
+          margin: const EdgeInsets.only(top: 16),
+          width: mSize * 0.6,
+          child: TextFormField(
+            decoration: InputDecoration(
+              labelStyle: Config().h3Style(),
+              labelText: 'Pssword :',
+              prefixIcon: Icon(
+                Icons.password,
+                color: Config.dart,
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Config.dart),
+                borderRadius: BorderRadius.circular(30),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Config.light),
+                borderRadius: BorderRadius.circular(30),
+              ),
+            ),
+          )),
+    ],
+  );
+}
+
