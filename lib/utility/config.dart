@@ -17,6 +17,9 @@ class Config {
   static String image3 = 'assets/images/3.png';
   static String image4 = 'assets/images/4.png';
   static String avatar = 'assets/images/avatar.png';
+  static String user = 'assets/images/user.png';
+  static String account = 'assets/images/account_box.png';
+  static String image = 'assets/images/image_add.png';
 
 //Color
   static Color primary = Color.fromARGB(255, 243, 133, 225);

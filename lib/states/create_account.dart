@@ -1,6 +1,12 @@
+
+
+import 'dart:io';
+
 import 'package:apponline/utility/config.dart';
+import 'package:apponline/widgets/show_image.dart';
 import 'package:apponline/widgets/show_title.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class CreateAccount extends StatefulWidget {
   const CreateAccount({super.key});
@@ -11,6 +17,7 @@ class CreateAccount extends StatefulWidget {
 
 class _CreateAccountState extends State<CreateAccount> {
   String cTypeUser = '*';
+  File? lcFile;
   @override
   Widget build(BuildContext context) {
     double mSize = MediaQuery.of(context).size.width;
@@ -33,11 +40,56 @@ class _CreateAccountState extends State<CreateAccount> {
             titleMsg('รายละเอียด'),
             userAddress(mSize),
             userPhone(mSize),
-            
+            userEmail(mSize),
+            userPassword(mSize),
+            userAvatar(mSize),
           ],
         ),
       ),
     );
+  }
+  Future<Null> chooseImage(ImageSource source)async{
+    try {
+      var result = await ImagePicker().getImage(
+        source: source,
+        maxWidth: 800,
+        maxHeight: 800,
+        );
+        setState(() {
+          lcFile = File(result!.path);
+        });
+    
+      
+    // ignore: empty_catches
+    } catch (e) {}
+  }
+
+  Row userAvatar(double mSize) {
+    return Row(crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              IconButton(
+                onPressed: ()=> chooseImage(ImageSource.camera),
+                icon: Icon(
+                  Icons.add_a_photo,
+                  size: 36,color: Config.primary,
+                ),
+              ),
+              Container(margin: EdgeInsets.symmetric(vertical: 16),
+                width: mSize*0.6,
+                child: lcFile == null ?
+                  ShowImage(cPath: Config.avatar) 
+                  : Image.file(lcFile!),
+                ),
+              IconButton(
+                onPressed: () => chooseImage(ImageSource.gallery),
+                icon: Icon(
+                  Icons.add_photo_alternate,
+                  size: 36,color: Config.dart,
+                ),
+              ),
+            ],
+          );
   }
 
   Row radioBuyer(double mSize) {
@@ -150,17 +202,18 @@ Row userAddress(double mSize) {
       Container(
           margin: const EdgeInsets.only(top: 16),
           width: mSize * 0.6,
-          child: TextFormField(maxLines: 3,
+          child: TextFormField(
+            maxLines: 3,
             decoration: InputDecoration(
-             hintText: 'Address :',
-             hintStyle: Config().h3Style(),
-               prefixIcon: Padding(
-                 padding: const EdgeInsets.fromLTRB(0,0,0,60),
-                 child: Icon(
+              hintText: 'Address :',
+              hintStyle: Config().h3Style(),
+              prefixIcon: Padding(
+                padding: const EdgeInsets.fromLTRB(0, 0, 0, 60),
+                child: Icon(
                   Icons.home,
                   color: Config.dart,
-                             ),
-               ),
+                ),
+              ),
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: Config.dart),
                 borderRadius: BorderRadius.circular(30),
@@ -174,7 +227,6 @@ Row userAddress(double mSize) {
     ],
   );
 }
-
 
 Row userEmail(double mSize) {
   return Row(
@@ -262,4 +314,3 @@ Row userPassword(double mSize) {
     ],
   );
 }
-
