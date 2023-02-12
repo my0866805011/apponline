@@ -1,6 +1,4 @@
-import 'dart:html';
 import 'dart:io';
-
 import 'package:apponline/utility/config.dart';
 import 'package:apponline/widgets/show_image.dart';
 import 'package:apponline/widgets/show_title.dart';
@@ -22,10 +20,10 @@ class MyDialog {
         actions: [TextButton(onPressed: () async {
           await Geolocator.openLocationSettings();
           exit(0);
-
         },
         // => Navigator.pop(context),
-        child: Text(('Ok')))],
+        child: const Text(('Ok')))
+        ],
       ),
     );  
   }
