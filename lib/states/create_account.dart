@@ -18,7 +18,14 @@ class CreateAccount extends StatefulWidget {
 class _CreateAccountState extends State<CreateAccount> {
   String cTypeUser = '*';
   File? lcFile;
+
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+
   Widget build(BuildContext context) {
     double mSize = MediaQuery.of(context).size.width;
     return Scaffold(
