@@ -3,9 +3,11 @@
 import 'dart:io';
 
 import 'package:apponline/utility/config.dart';
+import 'package:apponline/utility/my_dialog.dart';
 import 'package:apponline/widgets/show_image.dart';
 import 'package:apponline/widgets/show_title.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:image_picker/image_picker.dart';
 
 class CreateAccount extends StatefulWidget {
@@ -23,7 +25,22 @@ class _CreateAccountState extends State<CreateAccount> {
   void initState() {
     // TODO: implement initState
     super.initState();
+  print('Service Location ');   
+    findLatLng();
   }
+
+Future<Null> findLatLng() async {
+  print('Service Location ');
+  bool mlocationService;
+  LocationPermission mlocationPermission;
+  mlocationService = await Geolocator.isLocationServiceEnabled();
+  if (mlocationService) {
+    print('Service Location Open'); 
+  } else {
+    print('Service Location Close');
+    MyDialog().alertLocationService(context);
+  }
+}
 
 
   Widget build(BuildContext context) {
