@@ -1,7 +1,11 @@
+import 'dart:html';
+import 'dart:io';
+
 import 'package:apponline/utility/config.dart';
 import 'package:apponline/widgets/show_image.dart';
 import 'package:apponline/widgets/show_title.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 
 class MyDialog {
   Future<Null> alertLocationService(BuildContext context) async {
@@ -13,11 +17,14 @@ class MyDialog {
           title: ShowTitle(cTitle: 'Location Service Off ', 
           cTextStyle: Config().h2Style(),), 
           subtitle: ShowTitle(cTitle: 'เปิด Location Service On',
-          cTextStyle: Config().h2Style(),),
-          
-       
+          cTextStyle: Config().h2Style(),)     
         ),
-        actions: [TextButton(onPressed: () => Navigator.pop(context),
+        actions: [TextButton(onPressed: () async {
+          await Geolocator.openLocationSettings();
+          exit(0);
+
+        },
+        // => Navigator.pop(context),
         child: Text(('Ok')))],
       ),
     );  
